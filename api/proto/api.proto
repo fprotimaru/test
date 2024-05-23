@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package api;
+
+service API {
+  rpc GetRates(GetRatesRequest) returns (GetRatesResponse);
+}
+
+message Rate {
+  string price = 1;
+  string volume = 2;
+  string amount = 3;
+  string factor = 4;
+  string type = 5;
+}
+
+message GetRatesRequest {
+  string market = 1;
+}
+
+message GetRatesResponse {
+  int64 timestamp = 1;
+  Rate ask = 2;
+  Rate bid = 3;
+}
